@@ -76,25 +76,3 @@ func deleteMultipliersFromList(mul uint64, numbers []uint64) int {
 	//fmt.Printf("len of numbers is: %d \n", len(numbers))
 	//fmt.Printf("cap of numbers is: %d \n", cap(numbers))
 }
-
-//Delete all multiplies of number from list.
-/*
-func deleteMultipliersFromList(mul uint64, numbers []uint64) []uint64 {
-	purged := numbers
-	for i := 0; i < len(numbers); i++ {
-		if (numbers)[i]%mul == 0 {
-			fmt.Printf("purged %+v \n", purged)
-			purged = append(purged[:i], purged[i+1:]...)
-		}
-	}
-	return purged
-}
-*/
-
-/*
-func isNumberPrime(number uint64) {
-	if number%2 == 0 {
-		return false
-	}
-}
-*/
