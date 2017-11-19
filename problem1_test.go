@@ -1,5 +1,5 @@
 // problem1_test
-package main
+package projecteuler
 
 import "testing"
 
