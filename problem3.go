@@ -76,3 +76,7 @@ func deleteMultipliersFromList(mul uint64, numbers []uint64) int {
 	//fmt.Printf("len of numbers is: %d \n", len(numbers))
 	//fmt.Printf("cap of numbers is: %d \n", cap(numbers))
 }
+
+func testingSSH() {
+
+}
