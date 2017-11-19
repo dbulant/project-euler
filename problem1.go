@@ -1,5 +1,5 @@
 // problem1
-package main
+package projecteuler
 
 func Problem1() int {
 	top := 1000
