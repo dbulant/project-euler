@@ -1,5 +1,5 @@
 // problem2
-package main
+package projecteuler
 
 func Problem2() int {
 	sum := GeneralProblem2(4000000)
