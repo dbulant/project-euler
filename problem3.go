@@ -1,5 +1,5 @@
 // problem3
-package main
+package projecteuler
 
 import "fmt"
 
