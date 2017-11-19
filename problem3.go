@@ -78,5 +78,5 @@ func deleteMultipliersFromList(mul uint64, numbers []uint64) int {
 }
 
 func testingSSH() {
-
+	fmt.Printf("testholder function \n")
 }
