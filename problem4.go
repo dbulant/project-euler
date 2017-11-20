@@ -21,7 +21,7 @@ func GeneralProblem4(dignumber int) uint64 {
 			}
 		}
 	}
-	return 1
+	return 0
 }
 
 func isNumberPalindrome(n uint64) bool {
