@@ -94,20 +94,20 @@ func maxDiagonally(matrix [][]uint64, digits int) uint64 {
 	var max uint64 = 0
 	ml := len(matrix)
 	rl := len(matrix[0])
-	for i, j := 0, 0; j < rl-digits && i < ml-digits; {
-		tmp := make([]uint64, 0, 4)
-		for d := 0; d < digits; d++ {
-			v := matrix[i+d][j+d]
-			tmp = append(tmp, v)
+	for i := 0; i < ml-digits; i++ {
+		for j := 0; j < rl-digits; j++ {
+			tmp := make([]uint64, 0, 4)
+			for d := 0; d < digits; d++ {
+				v := matrix[i+d][j+d]
+				tmp = append(tmp, v)
+			}
+			fmt.Printf("slice is: %+v \n", tmp)
+			current := productOfSlice(tmp)
+			if current > max {
+				max = current
+			}
+			tmp = nil
 		}
-		fmt.Printf("tmp is %+v \n", tmp)
-		current := productOfSlice(tmp)
-		if current > max {
-			max = current
-		}
-		tmp = nil
-		i++
-		j++
 	}
 	return max
 }
