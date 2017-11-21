@@ -67,3 +67,10 @@ func TestGeneralProblem7(t *testing.T) {
 		t.Errorf("expected result is %d, got instead %d \n", 104743, pn)
 	}
 }
+
+func TestGeneralProblem10(t *testing.T) {
+	sum := Problem10()
+	if sum != 142913828922 {
+		t.Errorf("expected result is %d, got instead %d \n", 142913828922, sum)
+	}
+}
