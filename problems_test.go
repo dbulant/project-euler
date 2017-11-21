@@ -60,3 +60,10 @@ func TestGeneralProblem4(t *testing.T) {
 		t.Errorf("expected result is %d, got instead %d \n", expected, n)
 	}
 }
+
+func TestGeneralProblem7(t *testing.T) {
+	pn := GeneralProblem7(10001)
+	if pn != 104743 {
+		t.Errorf("expected result is %d, got instead %d \n", 104743, pn)
+	}
+}

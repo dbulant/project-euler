@@ -34,11 +34,3 @@ func squareOfSum(max uint64) uint64 {
 	}
 	return sum * sum
 }
-
-func sumOfSlice(s []uint64) uint64 {
-	var sum uint64 = 0
-	for _, v := range s {
-		sum += v
-	}
-	return sum
-}

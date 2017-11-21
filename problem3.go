@@ -28,16 +28,23 @@ func getAllDividersOfNumber(number uint64) []uint64 {
 func SieveOfEratosthenes(top uint64) []uint64 {
 	numbers := generateListOfUIntegers(top)
 	fmt.Printf("generated numbers: %+v \n", numbers)
-	nl := deleteMultipliersFromList(2, numbers)
+	f := make([]uint64, 0, 1)
+	f = append(f, numbers[0])
+	nl := deleteMultipliersFromList(2, numbers[1:]) //nl, new length
 	numbers = numbers[:nl]
-	fmt.Printf("after deleteMultipliers: %+v \n", numbers)
+	numbers = append(f, numbers...)
+	fmt.Printf("after deleteMultipliers one + addition of first element: %+v \n", numbers[1:])
+
+	f[0] = numbers[1]
 	nl = deleteMultipliersFromList(3, numbers)
 	numbers = numbers[:nl]
-	fmt.Printf("after deleteMultipliers: %+v \n", numbers)
+	numbers = append(f, numbers...)
+	numbers[1] = f[0]
+	fmt.Printf("after deleteMultipliers two + addition of first element: %+v \n", numbers[1:])
 
 	nl = deleteMultipliersFromList(5, numbers)
 	numbers = numbers[:nl]
-	fmt.Printf("after deleteMultipliers: %+v \n", numbers)
+	fmt.Printf("after deleteMultipliers three: %+v \n", numbers)
 
 	//fmt.Printf("len of numbers is: %d \n", len(numbers))
 	//fmt.Printf("cap of numbers is: %d \n", cap(numbers))

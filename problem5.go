@@ -22,14 +22,6 @@ func GeneralProblem5(max uint64) uint64 {
 	return maxDivider
 }
 
-func productOfSlice(s []uint64) uint64 {
-	var product uint64 = 1
-	for _, v := range s {
-		product *= v
-	}
-	return product
-}
-
 func isNumberDivisibleBySlice(n uint64, dividers []uint64) bool {
 	for _, v := range dividers {
 		if n%v != 0 {
@@ -37,12 +29,4 @@ func isNumberDivisibleBySlice(n uint64, dividers []uint64) bool {
 		}
 	}
 	return true
-}
-
-func createUintSlice(max uint64) []uint64 {
-	slice := make([]uint64, 0, 10)
-	for i := 1; uint64(i) <= max; i++ {
-		slice = append(slice, uint64(i))
-	}
-	return slice
 }
