@@ -2,7 +2,7 @@
 package projecteuler
 
 import (
-	//"fmt"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -97,9 +97,10 @@ func maxDiagonally(matrix [][]uint64, digits int) uint64 {
 	for i, j := 0, 0; j < rl-digits && i < ml-digits; {
 		tmp := make([]uint64, 0, 4)
 		for d := 0; d < digits; d++ {
-			v := matrix[i+digits][j+digits]
+			v := matrix[i+d][j+d]
 			tmp = append(tmp, v)
 		}
+		fmt.Printf("tmp is %+v \n", tmp)
 		current := productOfSlice(tmp)
 		if current > max {
 			max = current
