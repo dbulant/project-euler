@@ -74,3 +74,8 @@ func TestGeneralProblem10(t *testing.T) {
 		t.Errorf("expected result is %d, got instead %d \n", 142913828922, sum)
 	}
 }
+
+func TestProblem13(t *testing.T) {
+	//s := Problem13()
+	//t.Errorf("first ten digits are: %+v \n", s)
+}
