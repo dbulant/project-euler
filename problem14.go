@@ -15,7 +15,7 @@ import "sync"
 //NOTE: Once the chain starts the terms are allowed to go above one million.
 //TODO add more go routines, var numCPU = runtime.GOMAXPROCS(0),
 //TODO get rid of 4 and hardcoded values,
-//TODO create general function that computes something i interval
+//TODO create general function that computes something in interval
 func Problem14() uint64 {
 	number, _ := GeneralProblem14(1000000)
 	return number

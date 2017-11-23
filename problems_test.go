@@ -79,3 +79,22 @@ func TestProblem13(t *testing.T) {
 	//s := Problem13()
 	//t.Errorf("first ten digits are: %+v \n", s)
 }
+
+func TestGeneralProblem17(t *testing.T) {
+	tc := GeneralProblem17(5)
+	if tc != 19 {
+		t.Errorf("expected result is %d, got instead %d \n", 19, tc)
+	}
+
+	ls := NumberToLetters(342)
+	lc := countWithoutHyphensSpaces(ls[0])
+	if lc != 23 {
+		t.Errorf("expected result is %d, got instead %d \n", 23, lc)
+	}
+
+	ls = NumberToLetters(115)
+	lc = countWithoutHyphensSpaces(ls[0])
+	if lc != 20 {
+		t.Errorf("expected result is %d, got instead %d \n", 20, lc)
+	}
+}
