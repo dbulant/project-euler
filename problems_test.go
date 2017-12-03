@@ -80,6 +80,18 @@ func TestProblem13(t *testing.T) {
 	//t.Errorf("first ten digits are: %+v \n", s)
 }
 
+func TestGeneralProblem16(t *testing.T) {
+	r := GeneralProblem16(15)
+	if r != 26 {
+		t.Errorf("expected result is %d, got instead %d \n", 26, r)
+	}
+
+	r = GeneralProblem16(1000)
+	if r != 89 {
+		t.Errorf("expected result is %d, got instead %d \n", 89, r)
+	}
+}
+
 func TestGeneralProblem17(t *testing.T) {
 	tc := GeneralProblem17(5)
 	if tc != 19 {
