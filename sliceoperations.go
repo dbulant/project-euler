@@ -24,3 +24,23 @@ func createUintSlice(max uint64) []uint64 {
 	}
 	return slice
 }
+
+func areSlicesEqual(first []uint64, second []uint64) bool {
+	if len(first) != len(second) {
+		return false
+	}
+	for i, _ := range first {
+		if first[i] != second[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func smallerOrEqual(a int, b int) int {
+	if a < b {
+		return a
+	} else {
+		return b
+	}
+}
