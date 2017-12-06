@@ -17,6 +17,14 @@ func productOfSlice(s []uint64) uint64 {
 	return product
 }
 
+func productOfFloatSlice(s []float64) float64 {
+	var product float64 = 1
+	for _, v := range s {
+		product *= v
+	}
+	return product
+}
+
 func createUintSlice(max uint64) []uint64 {
 	slice := make([]uint64, 0, 10)
 	for i := 1; uint64(i) <= max; i++ {

@@ -7,9 +7,10 @@ import (
 )
 
 type FloatNumberData struct {
-	decimalPart  []uint64
-	floatingPart []uint64
-	exponent     uint64
+	decimalPart          uint64
+	floatingPart         []uint64
+	exponent             uint64
+	stringRepresentation string
 }
 
 //TODO Locale dependent function
@@ -21,20 +22,20 @@ type FloatNumberData struct {
 func NewFloatNumberData(n float64) (FloatNumberData, error) {
 	var data FloatNumberData
 	s := getFloatString(n)
+	data.stringRepresentation = s
 	decPart := strings.FieldsFunc(s, fieldFloatSeparator)
 	number, err := strconv.ParseUint(decPart[0], 10, 64)
 	if err != nil {
 		return data, err
 	}
-	digits := getDigitsFromNumber(number)
-	data.decimalPart = digits
+	data.decimalPart = number
 
 	floatingPointPart := strings.FieldsFunc(decPart[1], fieldExponentSeparator)
 	number, err = strconv.ParseUint(floatingPointPart[0], 10, 64)
 	if err != nil {
 		return data, err
 	}
-	digits = getDigitsFromNumber(number)
+	digits := getDigitsFromNumber(number)
 	data.floatingPart = digits
 
 	//this is ugly, + or - is right after 'e' or 'E', FieldFunc does not return it,
@@ -53,14 +54,14 @@ func NewFloatNumberData(n float64) (FloatNumberData, error) {
 //are compared.s
 func (d *FloatNumberData) isEqual(data *FloatNumberData, significant int) bool {
 	b := significant
-	dp1 := len(d.decimalPart)
-	dp2 := len(data.decimalPart)
-	if significant > dp1 || significant > dp2 {
-		l := smallerOrEqual(dp1, dp2)
+	fp1 := len(d.floatingPart)
+	fp2 := len(data.floatingPart)
+	if significant > fp1 || significant > fp2 {
+		l := smallerOrEqual(fp1, fp2)
 		b = l
 	}
 
-	if areSlicesEqual(d.decimalPart, data.decimalPart) && areSlicesEqual(data.floatingPart[:b], data.floatingPart[:b]) && d.exponent == data.exponent {
+	if d.decimalPart == data.decimalPart && areSlicesEqual(data.floatingPart[:b], data.floatingPart[:b]) && d.exponent == data.exponent {
 		return true
 	}
 	return false

@@ -2,23 +2,39 @@
 package projecteuler
 
 func Problem20() uint64 {
-	return GeneralProblem20(100)
+	var sum uint64 = 0
+	var step uint64 = 5
+	for i := uint64(0); i < uint64(100); i += step {
+		f := factorialInInterval(i+1, i+step) //does not work with  10, works with 5
+		digs := getDigitsFromNumber(f)
+		sum += sumOfSlice(digs)
+	}
+	return sum
 }
 
-func GeneralProblem20(n uint64) uint64 {
-	/*
-		product := factorial(n)
-		digits := getDigitsFromNumber(product)
-		sum := sumOfSlice(digits)
-		return sum
-	*/
-	return 1
+func factorialUint64(n uint64) uint64 {
+	var product uint64 = 1
+	for i := uint64(1); i <= n; i++ {
+		product *= i
+	}
+	return product
 }
 
-func factorial(n float64) float64 {
+func factorialFloat64(n float64) float64 {
 	var product float64 = 1
 	for i := float64(1); i <= n; i++ {
 		product *= i
+	}
+	return product
+}
+
+//Computes factorial in interval <low,top>
+func factorialInInterval(low uint64, top uint64) uint64 {
+	var product uint64 = 1
+	var i uint64 = low
+	for i <= top {
+		product *= i
+		i++
 	}
 	return product
 }
