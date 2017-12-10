@@ -3,6 +3,8 @@ package projecteuler
 
 import "testing"
 
+import . "github.com/dbulant/project-euler/Operations"
+
 var EXPECTED_FACTORIAL_100 float64 = 9.33262154439441e+157
 var EXPECTED_FACTORIAL_10 float64 = 3628800
 
@@ -11,7 +13,7 @@ func TestFloatNumberData(t *testing.T) {
 	expectedData, _ := NewFloatNumberData(EXPECTED_FACTORIAL_100)
 	f := factorialFloat64(100)
 	factorialData, _ := NewFloatNumberData(f)
-	if !factorialData.isEqual(&expectedData, 20) {
+	if !factorialData.IsEqual(&expectedData, 20) {
 		t.Errorf("factorialData %+v \n", factorialData)
 		t.Errorf("expectedData %+v \n", expectedData)
 	}
@@ -34,7 +36,7 @@ func TestBigFactorial(t *testing.T) {
 
 	finalData, _ := NewFloatNumberData(final)
 	expectedData, _ := NewFloatNumberData(EXPECTED_FACTORIAL_100)
-	if !finalData.isEqual(&expectedData, int(step)) {
+	if !finalData.IsEqual(&expectedData, int(step)) {
 		t.Errorf("expected %f, got %f instead \n", EXPECTED_FACTORIAL_100, final)
 	}
 }

@@ -52,7 +52,7 @@ func NewFloatNumberData(n float64) (FloatNumberData, error) {
 
 //Compare two FloatNumberData, significant means how many integers from floating point part
 //are compared.s
-func (d *FloatNumberData) isEqual(data *FloatNumberData, significant int) bool {
+func (d *FloatNumberData) IsEqual(data *FloatNumberData, significant int) bool {
 	b := significant
 	fp1 := len(d.floatingPart)
 	fp2 := len(data.floatingPart)
