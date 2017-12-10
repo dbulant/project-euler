@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	. "github.com/dbulant/project-euler/Operations"
 )
 
 /*
@@ -61,7 +63,7 @@ func maxValueFromLeftToRight(matrix [][]uint64, digits int) uint64 {
 	rl := len(matrix[0])
 	for i := 0; i < ml; i++ {
 		for j := 0; j < rl-digits; j++ {
-			current := productOfSlice(matrix[i][j : j+digits])
+			current := ProductOfSlice(matrix[i][j : j+digits])
 			if current > max {
 				max = current
 			}
@@ -81,7 +83,7 @@ func maxFromTopToDown(matrix [][]uint64, digits int) uint64 {
 	rl := len(matrix[0])
 	for j := 0; j < ml; j++ {
 		for i := 0; i < rl-digits; i++ {
-			current := productOfSlice(matrix[i : i+digits][j])
+			current := ProductOfSlice(matrix[i : i+digits][j])
 			if current > max {
 				max = current
 			}
@@ -102,7 +104,7 @@ func maxDiagonally(matrix [][]uint64, digits int) uint64 {
 				tmp = append(tmp, v)
 			}
 			fmt.Printf("slice is: %+v \n", tmp)
-			current := productOfSlice(tmp)
+			current := ProductOfSlice(tmp)
 			if current > max {
 				max = current
 			}

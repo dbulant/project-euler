@@ -1,6 +1,8 @@
 // problem17
 package projecteuler
 
+import . "github.com/dbulant/project-euler/Operations"
+
 //If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
 //If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
 //NOTE: Do not count spaces or hyphens.
@@ -17,7 +19,7 @@ func GeneralProblem17(max uint64) uint64 {
 	}
 	tc := uint64(0)
 	for _, w := range letters {
-		tc += countWithoutHyphensSpaces(w)
+		tc += CountWithoutHyphensSpaces(w)
 	}
 	return tc
 }
@@ -61,7 +63,7 @@ func initMap() {
 
 //Works only till 1000.
 func NumberToLetters(number uint64) []string {
-	digits := getDigitsFromNumber(number)
+	digits := GetDigitsFromNumber(number)
 	lend := len(digits)
 	letters := make([]string, 0, 1)
 	if lend == 1 {
@@ -83,7 +85,7 @@ func NumberToLetters(number uint64) []string {
 }
 
 //Counts number of letters, spaces and hyphens are excluded
-func countWithoutHyphensSpaces(letters string) uint64 {
+func CountWithoutHyphensSpaces(letters string) uint64 {
 	count := uint64(0)
 	for _, l := range letters {
 		if l != ' ' && l != '-' {

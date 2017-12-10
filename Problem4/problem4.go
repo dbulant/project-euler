@@ -2,6 +2,7 @@
 package projecteuler
 
 import "math"
+import . "github.com/dbulant/project-euler/Operations"
 
 //A palindromic number reads the same both ways.
 //The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -16,7 +17,7 @@ func GeneralProblem4(dignumber int) uint64 {
 	for i := max - 1; i >= 1; i-- {
 		for j := max - 1; j >= 1; j-- {
 			cur := i * j
-			if isNumberPalindrome(cur) {
+			if IsNumberPalindrome(cur) {
 				return cur
 			}
 		}

@@ -2,6 +2,7 @@
 package projecteuler
 
 import "strconv"
+import . "github.com/dbulant/project-euler/Operations"
 
 var THOUSAND_DIGITS_NUMBER string = "73167176531330624919225119674426574742355349194934" +
 	"96983520312774506326239578318016984801869478851843" +
@@ -33,8 +34,8 @@ func GeneralProblem8(number string, adjancentdigits int) uint64 {
 	for i := 0; i < len(number)-adjancentdigits; i++ {
 		sn := number[i : i+adjancentdigits]
 		n, _ := strconv.ParseUint(sn, 10, 64)
-		digits := getDigitsFromNumber(n)
-		current := productOfSlice(digits)
+		digits := GetDigitsFromNumber(n)
+		current := ProductOfSlice(digits)
 		if current > highest {
 			highest = current
 		}

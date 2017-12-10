@@ -2,6 +2,16 @@
 package projecteuler
 
 import "testing"
+import (
+	. "github.com/dbulant/project-euler/Problem1"
+	. "github.com/dbulant/project-euler/Problem10"
+	. "github.com/dbulant/project-euler/Problem16"
+	. "github.com/dbulant/project-euler/Problem17"
+	. "github.com/dbulant/project-euler/Problem4"
+	. "github.com/dbulant/project-euler/Problem7"
+
+	. "github.com/dbulant/project-euler/Operations"
+)
 
 func TestGeneralProblem1(t *testing.T) {
 	s := GeneralProblem1(10, []int{3, 5})
@@ -11,14 +21,14 @@ func TestGeneralProblem1(t *testing.T) {
 }
 
 func TestGetDigitsFromNumber(t *testing.T) {
-	d := getDigitsFromNumber(123)
+	d := GetDigitsFromNumber(123)
 	if d[0] != 1 && d[1] != 2 && d[2] != 3 {
 		rd := []uint64{1, 2, 3}
 		t.Errorf("digits are %+v \n", d)
 		t.Errorf("expected result is %+v \n", rd)
 	}
 
-	d = getDigitsFromNumber(654)
+	d = GetDigitsFromNumber(654)
 	if d[0] != 6 && d[1] != 5 && d[2] != 4 {
 		rd := []uint64{6, 5, 4}
 		t.Errorf("digits are %+v \n", d)
@@ -28,25 +38,25 @@ func TestGetDigitsFromNumber(t *testing.T) {
 
 func TestIsNumberPalindrome(t *testing.T) {
 	var tn uint64 = 12345
-	r := isNumberPalindrome(tn)
+	r := IsNumberPalindrome(tn)
 	if r {
 		t.Errorf("number %d is not palindrome, yet tests like true \n", tn)
 	}
 
 	tn = 12345
-	r = isNumberPalindrome(tn)
+	r = IsNumberPalindrome(tn)
 	if r {
 		t.Errorf("number %d is not palindrome, yet tests like true \n", tn)
 	}
 
 	tn = 12221
-	r = isNumberPalindrome(tn)
+	r = IsNumberPalindrome(tn)
 	if !r {
 		t.Errorf("number %d is palindrome, yet tests like false \n", tn)
 	}
 
 	tn = 32123
-	r = isNumberPalindrome(tn)
+	r = IsNumberPalindrome(tn)
 	if !r {
 		t.Errorf("number %d is palindrome, yet tests like false \n", tn)
 	}
@@ -99,13 +109,13 @@ func TestGeneralProblem17(t *testing.T) {
 	}
 
 	ls := NumberToLetters(342)
-	lc := countWithoutHyphensSpaces(ls[0])
+	lc := CountWithoutHyphensSpaces(ls[0])
 	if lc != 23 {
 		t.Errorf("expected result is %d, got instead %d \n", 23, lc)
 	}
 
 	ls = NumberToLetters(115)
-	lc = countWithoutHyphensSpaces(ls[0])
+	lc = CountWithoutHyphensSpaces(ls[0])
 	if lc != 20 {
 		t.Errorf("expected result is %d, got instead %d \n", 20, lc)
 	}

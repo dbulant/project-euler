@@ -2,9 +2,10 @@
 package projecteuler
 
 import "testing"
+import . "github.com/dbulant/project-euler/Operations"
 
 func TestCreateUintSlice(t *testing.T) {
-	s := createUintSlice(10)
+	s := CreateUintSlice(10)
 	var i uint64 = 1
 	for _, v := range s {
 		if v != i {
@@ -16,7 +17,7 @@ func TestCreateUintSlice(t *testing.T) {
 }
 
 func TestIsNumberDivisibleBySlice(t *testing.T) {
-	s := createUintSlice(10)
+	s := CreateUintSlice(10)
 	var n uint64 = 1
 	tr := isNumberDivisibleBySlice(n, s)
 	if tr {

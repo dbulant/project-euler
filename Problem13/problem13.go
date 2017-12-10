@@ -2,6 +2,7 @@
 package projecteuler
 
 import "strconv"
+import . "github.com/dbulant/project-euler/Operations"
 
 //Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.s
 var DIGITS string = "37107287533902102798797998220837590246510135740250" +
@@ -116,7 +117,7 @@ func GeneralProblem13(digits string, first int) []uint64 {
 		ui, _ := strconv.ParseUint(string(d), 10, 64)
 		ds = append(ds, ui)
 	}
-	sum := sumOfSlice(ds)
-	digs := getDigitsFromNumber(sum)
+	sum := SumOfSlice(ds)
+	digs := GetDigitsFromNumber(sum)
 	return digs
 }
