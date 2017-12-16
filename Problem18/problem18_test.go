@@ -61,7 +61,7 @@ func TestTraverseAndCompute(t *testing.T) {
 	}
 }
 
-func testTraverse() {
+func TestTraversePyramid(t *testing.T) {
 	rowsPyramid := createTestingPyramid()
 	p := &rowsPyramid
 	var sum uint64 = 0
@@ -84,6 +84,20 @@ func testTraverse() {
 			//t.Errorf("max value is %d ", currentMax)
 			if currentMaxRightColumnPosition != len((*p)[i]) {
 				currentMaxRightColumnPosition += 1
+			}
+		}
+		switch i {
+		case 1:
+			if currentMax != 7 {
+				t.Errorf("expected max %d, got %d instead \n", 7, currentMax)
+			}
+		case 2:
+			if currentMax != 4 {
+				t.Errorf("expected max %d, got %d instead \n", 4, currentMax)
+			}
+		case 3:
+			if currentMax != 9 {
+				t.Errorf("expected max %d, got %d instead \n", 9, currentMax)
 			}
 		}
 	}
