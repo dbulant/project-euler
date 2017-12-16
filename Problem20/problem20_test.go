@@ -11,7 +11,7 @@ var EXPECTED_FACTORIAL_10 float64 = 3628800
 func TestFloatNumberData(t *testing.T) {
 	//TODO no hardcoded values this way
 	expectedData, _ := NewFloatNumberData(EXPECTED_FACTORIAL_100)
-	f := factorialFloat64(100)
+	f := FactorialFloat64(100)
 	factorialData, _ := NewFloatNumberData(f)
 	if !factorialData.IsEqual(&expectedData, 20) {
 		t.Errorf("factorialData %+v \n", factorialData)
@@ -20,7 +20,7 @@ func TestFloatNumberData(t *testing.T) {
 }
 
 func TestFactorial(t *testing.T) {
-	f := factorialFloat64(10)
+	f := FactorialFloat64(10)
 	if f != EXPECTED_FACTORIAL_10 {
 		t.Errorf("expected %e, got %e instead \n", EXPECTED_FACTORIAL_10, f)
 	}
@@ -30,7 +30,7 @@ func TestBigFactorial(t *testing.T) {
 	var final float64 = 1
 	var step uint64 = 5
 	for i := uint64(0); i < uint64(100); i += step {
-		f := factorialInInterval(i+1, i+step) //does not work with  10, works with 5
+		f := FactorialInInterval(i+1, i+step) //does not work with  10, works with 5
 		final *= float64(f)
 	}
 
@@ -42,13 +42,13 @@ func TestBigFactorial(t *testing.T) {
 }
 
 func TestFactorialInInterval(t *testing.T) {
-	f := float64(factorialInInterval(1, 10))
+	f := float64(FactorialInInterval(1, 10))
 	if f != EXPECTED_FACTORIAL_10 {
 		t.Errorf("expected %f, got %f instead \n", EXPECTED_FACTORIAL_10, f)
 	}
 
-	f1 := float64(factorialInInterval(1, 5))
-	f2 := float64(factorialInInterval(6, 10))
+	f1 := float64(FactorialInInterval(1, 5))
+	f2 := float64(FactorialInInterval(6, 10))
 	if f := f1 * f2; f != EXPECTED_FACTORIAL_10 {
 		t.Errorf("expected %f, got %f instead \n", EXPECTED_FACTORIAL_10, f)
 	}

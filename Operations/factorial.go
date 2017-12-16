@@ -9,7 +9,7 @@ func FactorialUint64(n uint64) uint64 {
 	return product
 }
 
-func factorialFloat64(n float64) float64 {
+func FactorialFloat64(n float64) float64 {
 	var product float64 = 1
 	for i := float64(1); i <= n; i++ {
 		product *= i

@@ -8,14 +8,22 @@ import (
 func TestConvertor(t *testing.T) {
 	digs := make([]uint64, 0, 10)
 	digs = evenUint64ToBinary(14)
-	t.Errorf("digs are %+v \n", digs)
+	if digs[0] != 1 && digs[1] != 1 && digs[2] != 1 && digs[3] != 0 {
+		t.Errorf("binary digits are %+v \n", digs)
+	}
 
 	digs = evenUint64ToBinary(32)
-	t.Errorf("digs are %+v \n", digs)
+	if digs[0] != 1 && digs[1] != 0 && digs[2] != 0 && digs[3] != 0 && digs[4] != 0 && digs[5] != 0 {
+		t.Errorf("binary digits are %+v \n", digs)
+	}
 
 	digs = oddUint64ToBinary(5)
-	t.Errorf("digs are %+v \n", digs)
+	if digs[0] != 1 && digs[1] != 0 && digs[2] != 1 {
+		t.Errorf("binary digits are %+v \n", digs)
+	}
 
 	digs = oddUint64ToBinary(17)
-	t.Errorf("digs are %+v \n", digs)
+	if digs[0] != 1 && digs[1] != 0 && digs[2] != 0 && digs[3] != 0 && digs[4] != 1 {
+		t.Errorf("binary digits are %+v \n", digs)
+	}
 }
