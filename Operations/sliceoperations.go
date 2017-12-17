@@ -52,3 +52,10 @@ func smallerOrEqual(a int, b int) int {
 		return b
 	}
 }
+
+//Swap two elements identified by their index in slice
+func SwapIndexInSlice(s []int, index1 int, index2 int) {
+	tmp := s[index1]
+	s[index1] = s[index2]
+	s[index2] = tmp
+}

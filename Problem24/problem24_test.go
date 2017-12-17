@@ -3,16 +3,22 @@ package projecteuler
 
 import (
 	"testing"
+
+	. "github.com/dbulant/project-euler/Operations"
 )
 
+func TestProblem24(t *testing.T) {
+	r := Problem24()
+	t.Errorf("result is %v \n", r)
+}
+
 func TestPermutation(t *testing.T) {
-	//a, b, c := 1, 2, 3
 	t.Errorf("test permutation called \n")
 	permuted := make([]int, 0, 3)
 	permuted = append(permuted, 0, 1, 2)
 	result := make([][]int, 6)
 	index := 0
-	permute(&result, permuted, 0, 2, &index)
+	permuteAndSave(&result, permuted, 0, 2, &index)
 	t.Errorf("slice of results is %+v \n", result)
 }
 
@@ -32,22 +38,16 @@ func bruteForcePermutation(t *testing.T) {
 }
 
 //UGLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-func permute(result *[][]int, permuted []int, i int, n int, index *int) {
+func permuteAndSave(result *[][]int, permuted []int, i int, n int, index *int) {
 	if i == n {
 		(*result)[*index] = append((*result)[*index], permuted...)
 		(*index) += 1
 		return
 	} else {
 		for j := i; j <= n; j++ {
-			swap(permuted, i, j)
-			permute(result, permuted, i+1, n, index)
-			swap(permuted, i, j)
+			SwapIndexInSlice(permuted, i, j)
+			permuteAndSave(result, permuted, i+1, n, index)
+			SwapIndexInSlice(permuted, i, j)
 		}
 	}
-}
-
-func swap(permuted []int, index1 int, index2 int) {
-	tmp := permuted[index1]
-	permuted[index1] = permuted[index2]
-	permuted[index2] = tmp
 }
